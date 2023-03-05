@@ -24,6 +24,9 @@ class WordCloudView(View):
         context["wordcloud"] = wordcloud
         return render(request, self.template_name, self.get_context_data())
 
+    def get(self, request: HttpRequest) -> HttpResponse:
+        return render(request, self.template_name, self.get_context_data())
+
     def post(self, request: HttpRequest) -> HttpResponse:
         context = self.get_context_data()
         form = DataForm(request.POST, request.FILES)
